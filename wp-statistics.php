@@ -35,6 +35,7 @@
 	define('WP_STATISTICS_VISITORS_PAGE', 'wps_visitors_page' );
 	define('WP_STATISTICS_OPTIMIZATION_PAGE', 'wps_optimization_page' );
 	define('WP_STATISTICS_SETTINGS_PAGE', 'wps_settings_page' );
+	define('WP_STATISTICS_PLUGINS_PAGE', 'wps_plugins_page' );
 	define('WP_STATISTICS_DONATE_PAGE', 'wps_donate_page' );
 	define('WP_STATISTICS_MANUAL_PAGE', 'wps_manual_page' );
 
@@ -452,6 +453,9 @@
 
 		$WP_Statistics->menu_slugs['optimize'] = add_submenu_page(WP_STATISTICS_OVERVIEW_PAGE, __('Optimization', 'wp_statistics'), __('Optimization', 'wp_statistics'), $manage_cap, WP_STATISTICS_OPTIMIZATION_PAGE, 'wp_statistics_optimization');
 		$WP_Statistics->menu_slugs['settings'] = add_submenu_page(WP_STATISTICS_OVERVIEW_PAGE, __('Settings', 'wp_statistics'), __('Settings', 'wp_statistics'), $read_cap, WP_STATISTICS_SETTINGS_PAGE, 'wp_statistics_settings');
+
+		$WP_Statistics->menu_slugs['plugins'] = add_submenu_page(WP_STATISTICS_OVERVIEW_PAGE, __('Plugins', 'wp_statistics'), __('Plugins', 'wp_statistics'), $read_cap, WP_STATISTICS_PLUGINS_PAGE, 'wp_statistics_plugins');
+
 		$WP_Statistics->menu_slugs['donate'] = add_submenu_page(WP_STATISTICS_OVERVIEW_PAGE, __('Donate', 'wp_statistics'), __('Donate', 'wp_statistics'), $read_cap, WP_STATISTICS_DONATE_PAGE, 'wp_statistics_donate');
 		
 		// Only add the manual entry if it hasn't been deleted.
@@ -617,6 +621,10 @@
 
 		echo "<script>window.location.href = '$url';</script>";
 	}
+
+    function wp_statistics_plugins() {
+	    
+    }
 	
 	function wp_statistics_donate() {
 		$url = get_admin_url() . "/admin.php?page=" . WP_STATISTICS_SETTINGS_PAGE . "&tab=about";
