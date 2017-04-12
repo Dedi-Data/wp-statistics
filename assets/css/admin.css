@@ -1,11 +1,26 @@
 #adminmenu #toplevel_page_wps_overview_page .wp-menu-image:before {
-	content: "\f184";
+    content: "\f184";
 }
 
-#wp-admin-bar-wp-statistic-menu .ab-icon:before{
-	font-family: "dashicons" !important;
-	content: "\f184" !important;
+#wp-admin-bar-wp-statistic-menu .ab-icon:before {
+    font-family: "dashicons" !important;
+    content: "\f184" !important;
 }
-.wps-center{
-	text-align: center;
+
+.wps-center {
+    text-align: center;
+}
+
+.wps-plugins {
+    text-align: center;
+    width: 19%;
+    display: inline-block;
+    padding: 20px 22px;
+    height: 308px;
+    border: 1px solid #d0d0d0;
+    margin: 19px 11px 5px;
+}
+
+.wps-plugins img {
+    max-width: 135px;
 }

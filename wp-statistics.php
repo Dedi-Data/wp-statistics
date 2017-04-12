@@ -623,7 +623,7 @@
 	}
 
     function wp_statistics_plugins() {
-	    
+		include_once dirname( __FILE__ ) . '/includes/templates/plugins.php';
     }
 	
 	function wp_statistics_donate() {
