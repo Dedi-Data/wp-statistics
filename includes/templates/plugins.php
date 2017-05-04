@@ -6,23 +6,23 @@
                 <div id="wps-plugins-list" class="postbox">
                     <h2 class="hndle ui-sortable-handle"><span>Plugins list</span></h2>
                     <div class="inside">
-                        <?php foreach ($plugins as $plugin) : ?>
-                        <div class="wps-plugins">
-                            <img src="<?php bloginfo('url'); ?>/wp-content/plugins/wp-statistics/assets/images/logo-250.png"/>
-                            <div class="wps-plugin-description">
-                                <h3><?php echo $plugin->name; ?></h3>
-                                <p><?php echo $plugin->description; ?></p>
-                            </div>
+						<?php foreach ($plugins as $plugin) : ?>
+                            <div class="wps-plugins">
+                                <img src="<?php bloginfo('url'); ?>/wp-content/plugins/wp-statistics/assets/images/logo-250.png"/>
+                                <div class="wps-plugin-description">
+                                    <h3><?php echo $plugin->name; ?></h3>
+                                    <p><?php echo $plugin->description; ?></p>
+                                </div>
 
-                            <div class="wps-plugin-buttons">
-                                <a href="<?php echo $plugin->link; ?>" class="button-primary"><?php _e('Buy plugin', 'wp-statistics'); ?></a>
+                                <div class="wps-plugin-buttons">
+                                    <a href="<?php echo $plugin->link; ?>" class="button-primary"><?php _e('Buy plugin', 'wp-statistics'); ?></a>
+                                </div>
                             </div>
-                        </div>
-                        <?php endforeach; ?>
+						<?php endforeach; ?>
 
-                        <?php if($error) : ?>
-                        <p><?php echo sprintf(__('Error to getting plugins list. (%s)', 'wp_statistics'), $error); ?></p>
-                        <?php endif; ?>
+						<?php if ($error) : ?>
+                            <p><?php echo sprintf(__('Error to getting plugins list. (%s)', 'wp_statistics'), $error); ?></p>
+						<?php endif; ?>
                     </div>
                 </div>
             </div>
@@ -34,7 +34,8 @@
                     </button>
                     <h2 class="hndle ui-sortable-handle"><span>About plugins</span></h2>
                     <div class="inside">
-                        <p>Creates a button on wysiwyg toolbars to add a configurable amount of Lorem Ipsum text to a post, page or any other custom post type.</p>
+                        <p>Creates a button on wysiwyg toolbars to add a configurable amount of Lorem Ipsum text to a
+                            post, page or any other custom post type.</p>
                     </div>
                 </div>
 
@@ -44,7 +45,8 @@
                     </button>
                     <h2 class="hndle ui-sortable-handle"><span>Support</span></h2>
                     <div class="inside">
-                        <p>Creates a button on wysiwyg toolbars to add a configurable amount of Lorem Ipsum text to a post, page or any other custom post type.</p>
+                        <p>Creates a button on wysiwyg toolbars to add a configurable amount of Lorem Ipsum text to a
+                            post, page or any other custom post type.</p>
                     </div>
                 </div>
             </div>
