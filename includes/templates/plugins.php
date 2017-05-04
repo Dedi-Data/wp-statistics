@@ -15,7 +15,15 @@
                                 </div>
 
                                 <div class="wps-plugin-buttons">
-                                    <a href="<?php echo $plugin->link; ?>" class="button-primary"><?php _e('Buy plugin', 'wp-statistics'); ?></a>
+									<?php if (is_plugin_active($plugin->slug . '/' . $plugin->slug . '.php')) { ?>
+                                        <a href="admin.php?page=wps_plugins_page&action=deactivate&plugin=<?php echo $plugin->slug; ?>" class="button-primary"><?php _e('Deactivate plugin', 'wp-statistics'); ?></a>
+									<?php } else { ?>
+										<?php if (file_exists(WP_PLUGIN_DIR . '/' . $plugin->slug . '/' . $plugin->slug . '.php')) { ?>
+                                            <a href="admin.php?page=wps_plugins_page&action=activate&plugin=<?php echo $plugin->slug; ?>" class="button-primary"><?php _e('Activate plugin', 'wp-statistics'); ?></a>
+										<?php } else { ?>
+                                            <a href="<?php echo $plugin->link; ?>" class="button-primary"><?php _e('Buy plugin', 'wp-statistics'); ?></a>
+										<?php } ?>
+									<?php } ?>
                                 </div>
                             </div>
 						<?php endforeach; ?>

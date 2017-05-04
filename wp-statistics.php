@@ -708,6 +708,27 @@ function wp_statistics_goto_network_blog()
 
 function wp_statistics_plugins()
 {
+	// Activate or deactivate the selected plugin
+	if (isset($_GET['action'])) {
+		if($_GET['action'] == 'activate') {
+			$result = activate_plugin($_GET['plugin'] . '/' . $_GET['plugin'] . '.php');
+			if (is_wp_error($result)) {
+				wp_statistics_admin_notice_result('error', $result->get_error_message());
+			} else {
+				wp_statistics_admin_notice_result('success', __('Plugin activated.', 'wp_statistics'));
+			}
+		}
+
+		if($_GET['action'] == 'deactivate') {
+			$result = deactivate_plugins($_GET['plugin'] . '/' . $_GET['plugin'] . '.php');
+			if (is_wp_error($result)) {
+				wp_statistics_admin_notice_result('error', $result->get_error_message());
+			} else {
+				wp_statistics_admin_notice_result('success', __('Plugin deactivated.', 'wp_statistics'));
+			}
+		}
+	}
+
 	$response = wp_remote_get('http://localhost/cms/wordpress/wp-json/plugins/get');
 	$response_code = wp_remote_retrieve_response_code($response);
 	$error = null;
@@ -739,7 +760,6 @@ function wp_statistics_menu_icon()
 {
 
 	global $wp_version;
-
 	if (version_compare($wp_version, '3.8-RC', '>=') || version_compare($wp_version, '3.8', '>=')) {
 		wp_enqueue_style('wpstatistics-admin-css', plugin_dir_url(__FILE__) . 'assets/css/admin' . WP_STATISTICS_MIN_EXT . '.css', true, '1.0');
 	} else {
@@ -1133,4 +1153,23 @@ function wp_statistics_admin_notice($result, $message)
 	}
 
 	return;
+}
+
+/**
+ * Show message notice in admin
+ *
+ * @param $result
+ * @param $message
+ * @return string|void
+ * @internal param param $Not
+ */
+function wp_statistics_admin_notice_result($result, $message)
+{
+	if ($result == 'error') {
+		echo '<div class="updated settings-error notice error is-dismissible"><p><strong>' . $message . '</strong></p><button class="notice-dismiss" type="button"><span class="screen-reader-text">' . __('Close', 'wp-sms') . '</span></button></div>';
+	}
+
+	if ($result == 'success') {
+		echo '<div class="updated settings-update notice is-dismissible"><p><strong>' . $message . '</strong></p><button class="notice-dismiss" type="button"><span class="screen-reader-text">' . __('Close', 'wp-sms') . '</span></button></div>';
+	}
 }
