@@ -207,10 +207,11 @@ function wp_statistics_pages($time, $page_uri = '', $id = -1, $rangestartdate = 
 			$sqlstatement = "SELECT SUM(count) FROM {$wpdb->prefix}statistics_pages WHERE {$page_sql}";
 			$history = $WP_Statistics->Get_Historical_Data($history_key, $history_id);
 			break;
+
 		case 'range':
 			$sqlstatement = "SELECT SUM(count) FROM {$wpdb->prefix}statistics_pages WHERE `date` BETWEEN '" . $WP_Statistics->Current_Date('Y-m-d', '-0', strtotime($rangestartdate)) . "' AND '" . $WP_Statistics->Current_Date('Y-m-d', '-0', strtotime($rangeenddate)) . "' AND {$page_sql}";
-
 			break;
+
 		default:
 			$sqlstatement = "SELECT SUM(count) FROM {$wpdb->prefix}statistics_pages WHERE `date` = '{$WP_Statistics->Current_Date( 'Y-m-d', $time )}' AND {$page_sql}";
 			break;
@@ -274,7 +275,7 @@ function wp_statistics_get_top_pages($rangestartdate = null, $rangeenddate = nul
 		// Increment the total number of results.
 		$total++;
 
-		// Retreive the post ID for the URI.
+		// Retrieve the post ID for the URI.
 		$id = wp_statistics_uri_to_id($out[0]);
 
 		// Lookup the post title.
@@ -358,11 +359,10 @@ function wp_statistics_get_uri()
 // This function returns all unique user agents in the database.
 function wp_statistics_ua_list($rangestartdate = null, $rangeenddate = null)
 {
-
 	global $wpdb;
 
 	if ($rangestartdate != null && $rangeenddate != null) {
-		$result = $wpdb->get_results($wpdb->prepare("SELECT DISTINCT agent FROM {$wpdb->prefix}statistics_visitor AND `last_counter` BETWEEN %s AND %s", $rangestartdate, $rangeenddate), ARRAY_N);
+		$result = $wpdb->get_results($wpdb->prepare("SELECT DISTINCT agent FROM {$wpdb->prefix}statistics_visitor WHERE `last_counter` BETWEEN %s AND %s", $rangestartdate, $rangeenddate), ARRAY_N);
 	} else {
 		$result = $wpdb->get_results("SELECT DISTINCT agent FROM {$wpdb->prefix}statistics_visitor", ARRAY_N);
 	}
@@ -379,7 +379,6 @@ function wp_statistics_ua_list($rangestartdate = null, $rangeenddate = null)
 // This function returns the count of a given user agent in the database.
 function wp_statistics_useragent($agent, $rangestartdate = null, $rangeenddate = null)
 {
-
 	global $wpdb;
 
 	if ($rangestartdate != null && $rangeenddate != null) {
@@ -667,7 +666,6 @@ function wp_statistics_searchengine_regex($search_engine = 'all')
 // This function will return the statistics for a given search engine.
 function wp_statistics_searchengine($search_engine = 'all', $time = 'total')
 {
-
 	global $wpdb, $WP_Statistics;
 
 	// Determine if we're using the old or new method of storing search engine info and build the appropriate table name.
@@ -691,32 +689,26 @@ function wp_statistics_searchengine($search_engine = 'all', $time = 'total')
 
 		case 'yesterday':
 			$result = $wpdb->query("SELECT * FROM `{$tablename}` WHERE `last_counter` = '{$WP_Statistics->Current_Date( 'Y-m-d', -1 )}' AND {$search_query}");
-
 			break;
 
 		case 'week':
 			$result = $wpdb->query("SELECT * FROM `{$tablename}` WHERE `last_counter` = '{$WP_Statistics->Current_Date( 'Y-m-d', -7 )}' AND {$search_query}");
-
 			break;
 
 		case 'month':
 			$result = $wpdb->query("SELECT * FROM `{$tablename}` WHERE `last_counter` = '{$WP_Statistics->Current_Date( 'Y-m-d', -30 )}' AND {$search_query}");
-
 			break;
 
 		case 'year':
 			$result = $wpdb->query("SELECT * FROM `{$tablename}` WHERE `last_counter` = '{$WP_Statistics->Current_Date( 'Y-m-d', -365 )}' AND {$search_query}");
-
 			break;
 
 		case 'total':
 			$result = $wpdb->query("SELECT * FROM `{$tablename}` WHERE {$search_query}");
-
 			break;
 
 		default:
 			$result = $wpdb->query("SELECT * FROM `{$tablename}` WHERE `last_counter` = '{$WP_Statistics->Current_Date( 'Y-m-d', $time)}' AND {$search_query}");
-
 			break;
 	}
 
@@ -726,7 +718,6 @@ function wp_statistics_searchengine($search_engine = 'all', $time = 'total')
 // This function will return the statistics for a given search engine for a given time frame.
 function wp_statistics_searchword($search_engine = 'all', $time = 'total')
 {
-
 	global $wpdb, $WP_Statistics;
 
 	// Determine if we're using the old or new method of storing search engine info and build the appropriate table name.
@@ -750,32 +741,26 @@ function wp_statistics_searchword($search_engine = 'all', $time = 'total')
 
 		case 'yesterday':
 			$result = $wpdb->query("SELECT * FROM `{$tablename}` WHERE `last_counter` = '{$WP_Statistics->Current_Date( 'Y-m-d', -1 )}' AND {$search_query}");
-
 			break;
 
 		case 'week':
 			$result = $wpdb->query("SELECT * FROM `{$tablename}` WHERE `last_counter` = '{$WP_Statistics->Current_Date( 'Y-m-d', -7 )}' AND {$search_query}");
-
 			break;
 
 		case 'month':
 			$result = $wpdb->query("SELECT * FROM `{$tablename}` WHERE `last_counter` = '{$WP_Statistics->Current_Date( 'Y-m-d', -30 )}' AND {$search_query}");
-
 			break;
 
 		case 'year':
 			$result = $wpdb->query("SELECT * FROM `{$tablename}` WHERE `last_counter` = '{$WP_Statistics->Current_Date( 'Y-m-d', -365 )}' AND {$search_query}");
-
 			break;
 
 		case 'total':
 			$result = $wpdb->query("SELECT * FROM `{$tablename}` WHERE {$search_query}");
-
 			break;
 
 		default:
 			$result = $wpdb->query("SELECT * FROM `{$tablename}` WHERE `last_counter` = '{$WP_Statistics->Current_Date( 'Y-m-d', $time )}' AND {$search_query}");
-
 			break;
 	}
 
@@ -800,7 +785,6 @@ function wp_statistics_countposts()
 // This function will return the total number of pages in WordPress.
 function wp_statistics_countpages()
 {
-
 	$count_pages = wp_count_posts('page');
 
 	$ret = 0;
@@ -815,7 +799,6 @@ function wp_statistics_countpages()
 // This function will return the total number of comments in WordPress.
 function wp_statistics_countcomment()
 {
-
 	global $wpdb;
 
 	$countcomms = $wpdb->get_var("SELECT COUNT(*) FROM {$wpdb->comments} WHERE comment_approved = '1'");
@@ -826,14 +809,12 @@ function wp_statistics_countcomment()
 // This function will return the total number of spam comments *IF* akismet is installed.
 function wp_statistics_countspam()
 {
-
 	return number_format_i18n(get_option('akismet_spam_count'));
 }
 
 // This function will return the total number of users in WordPress.
 function wp_statistics_countusers()
 {
-
 	$result = count_users();
 	return $result['total_users'];
 }
@@ -841,13 +822,10 @@ function wp_statistics_countusers()
 // This function will return the last date a post was published on your site.
 function wp_statistics_lastpostdate()
 {
-
 	global $wpdb, $WP_Statistics;
 
 	$db_date = $wpdb->get_var("SELECT post_date FROM {$wpdb->posts} WHERE post_type='post' AND post_status='publish' ORDER BY post_date DESC LIMIT 1");
-
 	$date_format = get_option('date_format');
-
 	return $WP_Statistics->Current_Date_i18n($date_format, $db_date, false);
 }
 
@@ -855,7 +833,6 @@ function wp_statistics_lastpostdate()
 // Alternatively if $days is set to true it returns the average number of days between posts on your site.
 function wp_statistics_average_post($days = false)
 {
-
 	global $wpdb;
 
 	$get_first_post = $wpdb->get_var("SELECT post_date FROM {$wpdb->posts} WHERE post_status = 'publish' ORDER BY post_date LIMIT 1");
@@ -880,7 +857,6 @@ function wp_statistics_average_post($days = false)
 // Alternatively if $days is set to true it returns the average number of days between comments on your site.
 function wp_statistics_average_comment($days = false)
 {
-
 	global $wpdb;
 
 	$get_first_comment = $wpdb->get_var("SELECT comment_date FROM {$wpdb->comments} ORDER BY comment_date LIMIT 1");
@@ -905,7 +881,6 @@ function wp_statistics_average_comment($days = false)
 // Alternatively if $days is set to true it returns the average number of days between user registrations on your site.
 function wp_statistics_average_registeruser($days = false)
 {
-
 	global $wpdb;
 
 	$get_first_user = $wpdb->get_var("SELECT user_registered FROM {$wpdb->users} ORDER BY user_registered LIMIT 1");
@@ -929,7 +904,6 @@ function wp_statistics_average_registeruser($days = false)
 // This function handle's the dashicons in the overview page.
 function wp_statistics_icons($dashicons, $icon_name = null)
 {
-
 	global $wp_version;
 
 	if (null == $icon_name) {
@@ -1081,7 +1055,7 @@ function wp_statistics_date_range_selector($page, $current, $range = array(), $d
 	echo '<script>jQuery(function() { jQuery( "#datestartpicker" ).datepicker(); jQuery( "#dateendpicker" ).datepicker(); });</script>' . "\r\n";
 }
 
-// This function is used to calculate the number of days and thier respective unix timestamps.
+// This function is used to calculate the number of days and their respective unix timestamps.
 function wp_statistics_date_range_calculator($days, $start, $end)
 {
 	GLOBAL $WP_Statistics;
@@ -1124,7 +1098,7 @@ function wp_statitiscs_empty_table($table_name = FALSE)
 	return sprintf(__('Error, %s not emptied!', 'wp_statistics'), $table_name);
 }
 
-// This function creates a small JavaScript snipit that will load the contents of a overview or dashboard widget.
+// This function creates a small JavaScript snipe that will load the contents of a overview or dashboard widget.
 function wp_statistics_generate_widget_load_javascript($widget, $container_id = null)
 {
 	if (null == $container_id) {

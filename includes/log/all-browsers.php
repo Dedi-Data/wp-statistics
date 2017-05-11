@@ -44,7 +44,7 @@ $rangeenddate = $WP_Statistics->real_current_date('Y-m-d', '-0', $rangeend_utime
                                 var browser_chart;
                                 jQuery(document).ready(function () {
 									<?php
-									$Browsers = wp_statistics_ua_list();
+									$Browsers = wp_statistics_ua_list($rangestartdate, $rangeenddate);
 									if (!is_array($Browsers)) {
 										$Browsers = array();
 									}
