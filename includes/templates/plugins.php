@@ -6,7 +6,7 @@
                 <div id="wps-plugins-list" class="postbox">
                     <h2 class="hndle ui-sortable-handle"><span>Plugins list</span></h2>
                     <div class="inside">
-						<?php foreach ($plugins as $plugin) : ?>
+						<?php foreach ($plugins->items as $plugin) : ?>
                             <div class="wps-plugins">
                                 <img src="<?php bloginfo('url'); ?>/wp-content/plugins/wp-statistics/assets/images/logo-250.png"/>
                                 <div class="wps-plugin-description">

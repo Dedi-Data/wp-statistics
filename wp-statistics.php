@@ -710,7 +710,7 @@ function wp_statistics_plugins()
 {
 	// Activate or deactivate the selected plugin
 	if (isset($_GET['action'])) {
-		if($_GET['action'] == 'activate') {
+		if ($_GET['action'] == 'activate') {
 			$result = activate_plugin($_GET['plugin'] . '/' . $_GET['plugin'] . '.php');
 			if (is_wp_error($result)) {
 				wp_statistics_admin_notice_result('error', $result->get_error_message());
@@ -719,7 +719,7 @@ function wp_statistics_plugins()
 			}
 		}
 
-		if($_GET['action'] == 'deactivate') {
+		if ($_GET['action'] == 'deactivate') {
 			$result = deactivate_plugins($_GET['plugin'] . '/' . $_GET['plugin'] . '.php');
 			if (is_wp_error($result)) {
 				wp_statistics_admin_notice_result('error', $result->get_error_message());
@@ -729,7 +729,7 @@ function wp_statistics_plugins()
 		}
 	}
 
-	$response = wp_remote_get('http://localhost/cms/wordpress/wp-json/plugins/get');
+	$response = wp_remote_get('http://198.199.76.235/wp-json/addons/get_list');
 	$response_code = wp_remote_retrieve_response_code($response);
 	$error = null;
 	$plugins = [];
