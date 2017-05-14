@@ -1,37 +1,58 @@
 <div class="wrap">
-    <h2><?php esc_html_e('Plugins', 'wp-statistics'); ?></h2>
-    <div id="poststuff">
+    <h2><?php esc_html_e('Featured plugins', 'wp-statistics'); ?></h2>
+    <div id="poststuff" class="wp-statistics-plugins">
         <div id="post-body" class="metabox-holder columns-<?php echo 1 == get_current_screen()->get_columns() ? '1' : '2'; ?>">
-            <div id="post-body-content">
-                <div id="wps-plugins-list" class="postbox">
-                    <h2 class="hndle ui-sortable-handle"><span>Plugins list</span></h2>
-                    <div class="inside">
-						<?php foreach ($plugins->items as $plugin) : ?>
-                            <div class="wps-plugins">
-                                <img src="<?php bloginfo('url'); ?>/wp-content/plugins/wp-statistics/assets/images/logo-250.png"/>
-                                <div class="wps-plugin-description">
-                                    <h3><?php echo $plugin->name; ?></h3>
-                                    <p><?php echo $plugin->description; ?></p>
+            <p><?php _e('These extensions add functionality to your WP-Statistics.', 'wp-statistics'); ?></p>
+            <div class="wp-list-table widefat widefat plugin-install">
+                <div id="the-list">
+					<?php foreach ($plugins->items as $plugin) : ?>
+                        <div class="plugin-card">
+                            <div class="plugin-card-top">
+                                <div class="name column-name">
+                                    <h3>
+                                        <a target="_blank" href="<?php echo $plugin->url; ?>" class="thickbox open-plugin-details-modal">
+											<?php echo $plugin->name; ?>
+                                            <img src="<?php echo $plugin->image; ?>" class="plugin-icon" alt="">
+                                        </a>
+                                    </h3>
                                 </div>
 
-                                <div class="wps-plugin-buttons">
+                                <div class="desc column-description">
+                                    <p><?php echo wp_trim_words($plugin->description, 20); ?></p>
+                                </div>
+                            </div>
+                            <div class="plugin-card-bottom">
+                                <div class="column-downloaded">
+                                    <strong>Version: </strong><?php echo $plugin->version; ?>
+                                    <p><strong>Status:</strong>
+										<?php
+										if (is_plugin_active($plugin->slug . '/' . $plugin->slug . '.php')) {
+											_e('Active', 'wp-statistics');
+										} else if (file_exists(WP_PLUGIN_DIR . '/' . $plugin->slug . '/' . $plugin->slug . '.php')) {
+											_e('Deactivate', 'wp-statistics');
+										} else {
+											_e('Not installed', 'wp-statistics');
+										}
+										?>
+                                    </p>
+                                </div>
+                                <div class="column-compatibility">
 									<?php if (is_plugin_active($plugin->slug . '/' . $plugin->slug . '.php')) { ?>
-                                        <a href="admin.php?page=wps_plugins_page&action=deactivate&plugin=<?php echo $plugin->slug; ?>" class="button-primary"><?php _e('Deactivate plugin', 'wp-statistics'); ?></a>
+                                        <a href="admin.php?page=wps_plugins_page&action=deactivate&plugin=<?php echo $plugin->slug; ?>" class="button"><?php _e('Deactivate plugin', 'wp-statistics'); ?></a>
 									<?php } else { ?>
 										<?php if (file_exists(WP_PLUGIN_DIR . '/' . $plugin->slug . '/' . $plugin->slug . '.php')) { ?>
-                                            <a href="admin.php?page=wps_plugins_page&action=activate&plugin=<?php echo $plugin->slug; ?>" class="button-primary"><?php _e('Activate plugin', 'wp-statistics'); ?></a>
+                                            <a href="admin.php?page=wps_plugins_page&action=activate&plugin=<?php echo $plugin->slug; ?>" class="button"><?php _e('Activate plugin', 'wp-statistics'); ?></a>
 										<?php } else { ?>
-                                            <a href="<?php echo $plugin->link; ?>" class="button-primary"><?php _e('Buy plugin', 'wp-statistics'); ?></a>
+                                            <div class="column-price">
+                                                <strong>$<?php echo $plugin->price; ?></strong>
+                                            </div>
+                                            <a target="_blank" href="<?php echo $plugin->url; ?>" class="button-primary"><?php _e('Buy plugin', 'wp-statistics'); ?></a>
 										<?php } ?>
 									<?php } ?>
                                 </div>
                             </div>
-						<?php endforeach; ?>
-
-						<?php if ($error) : ?>
-                            <p><?php echo sprintf(__('Error to getting plugins list. (%s)', 'wp_statistics'), $error); ?></p>
-						<?php endif; ?>
-                    </div>
+                        </div>
+					<?php endforeach; ?>
                 </div>
             </div>
 
