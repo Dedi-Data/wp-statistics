@@ -1,5 +1,5 @@
 <div class="wrap">
-    <h2><?php esc_html_e('Featured plugins', 'wp-statistics'); ?></h2>
+    <h2><?php esc_html_e('Extensions for WP-Statistics', 'wp-statistics'); ?></h2>
     <div id="poststuff" class="wp-statistics-plugins">
         <div id="post-body" class="metabox-holder columns-<?php echo 1 == get_current_screen()->get_columns() ? '1' : '2'; ?>">
             <p><?php _e('These extensions add functionality to your WP-Statistics.', 'wp-statistics'); ?></p>

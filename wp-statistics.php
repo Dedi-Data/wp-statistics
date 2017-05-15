@@ -528,7 +528,7 @@ function wp_statistics_menu()
 	$WP_Statistics->menu_slugs['optimize'] = add_submenu_page(WP_STATISTICS_OVERVIEW_PAGE, __('Optimization', 'wp_statistics'), __('Optimization', 'wp_statistics'), $manage_cap, WP_STATISTICS_OPTIMIZATION_PAGE, 'wp_statistics_optimization');
 	$WP_Statistics->menu_slugs['settings'] = add_submenu_page(WP_STATISTICS_OVERVIEW_PAGE, __('Settings', 'wp_statistics'), __('Settings', 'wp_statistics'), $read_cap, WP_STATISTICS_SETTINGS_PAGE, 'wp_statistics_settings');
 
-	$WP_Statistics->menu_slugs['plugins'] = add_submenu_page(WP_STATISTICS_OVERVIEW_PAGE, __('Featured plugins', 'wp_statistics'), __('Featured plugins', 'wp_statistics'), $read_cap, WP_STATISTICS_PLUGINS_PAGE, 'wp_statistics_plugins');
+	$WP_Statistics->menu_slugs['plugins'] = add_submenu_page(WP_STATISTICS_OVERVIEW_PAGE, __('Add-Ons', 'wp_statistics'), __('Add-Ons', 'wp_statistics'), $read_cap, WP_STATISTICS_PLUGINS_PAGE, 'wp_statistics_plugins');
 
 	$WP_Statistics->menu_slugs['donate'] = add_submenu_page(WP_STATISTICS_OVERVIEW_PAGE, __('Donate', 'wp_statistics'), __('Donate', 'wp_statistics'), $read_cap, WP_STATISTICS_DONATE_PAGE, 'wp_statistics_donate');
 
