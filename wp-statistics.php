@@ -3,8 +3,8 @@
  * Plugin Name: WP Statistics
  * Plugin URI: http://wp-statistics.com/
  * Description: Complete statistics for your WordPress site.
- * Version: 12.0.6
- * Author: Greg Ross & Mostafa Soufi
+ * Version: 12.1.0
+ * Author: WP-Statistics Team
  * Author URI: http://wp-statistics.com/
  * Text Domain: wp_statistics
  * Domain Path: /languages/
@@ -12,7 +12,7 @@
  */
 
 // These defines are used later for various reasons.
-define( 'WP_STATISTICS_VERSION', '12.0.6' );
+define( 'WP_STATISTICS_VERSION', '12.1.0' );
 define( 'WP_STATISTICS_MANUAL', 'manual/WP Statistics Admin Manual.' );
 define( 'WP_STATISTICS_REQUIRED_PHP_VERSION', '5.4.0' );
 define( 'WP_STATISTICS_REQUIRED_GEOIP_PHP_VERSION', WP_STATISTICS_REQUIRED_PHP_VERSION );
@@ -707,7 +707,7 @@ function wp_statistics_plugins() {
 			if ( is_wp_error( $result ) ) {
 				wp_statistics_admin_notice_result( 'error', $result->get_error_message() );
 			} else {
-				wp_statistics_admin_notice_result( 'success', __( 'Add-Ons activated.', 'wp_statistics' ) );
+				wp_statistics_admin_notice_result( 'success', __( 'Add-On activated.', 'wp_statistics' ) );
 			}
 		}
 
@@ -716,7 +716,7 @@ function wp_statistics_plugins() {
 			if ( is_wp_error( $result ) ) {
 				wp_statistics_admin_notice_result( 'error', $result->get_error_message() );
 			} else {
-				wp_statistics_admin_notice_result( 'success', __( 'Add-Ons deactivated.', 'wp_statistics' ) );
+				wp_statistics_admin_notice_result( 'success', __( 'Add-On deactivated.', 'wp_statistics' ) );
 			}
 		}
 	}

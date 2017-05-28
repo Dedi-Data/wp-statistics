@@ -288,7 +288,7 @@ This is a security fix, please update immediately.
 
 == Changelog ==
 = 12.1.0 =
-* Release Date: April 27, 2017
+* Release Date: May 28, 2017
 * Added: Extensions page on the plugin
 * Fixed: SQL issue in `wp_statistics_ua_list` function to get data with date range
 

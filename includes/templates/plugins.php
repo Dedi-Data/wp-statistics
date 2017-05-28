@@ -38,15 +38,15 @@
                                 </div>
                                 <div class="column-compatibility">
 									<?php if ( is_plugin_active( $plugin->slug . '/' . $plugin->slug . '.php' ) ) { ?>
-                                        <a href="admin.php?page=wps_plugins_page&action=deactivate&plugin=<?php echo $plugin->slug; ?>" class="button"><?php _e( 'Deactivate Add-Ons', 'wp-statistics' ); ?></a>
+                                        <a href="admin.php?page=wps_plugins_page&action=deactivate&plugin=<?php echo $plugin->slug; ?>" class="button"><?php _e( 'Deactivate Add-On', 'wp-statistics' ); ?></a>
 									<?php } else { ?>
 										<?php if ( file_exists( WP_PLUGIN_DIR . '/' . $plugin->slug . '/' . $plugin->slug . '.php' ) ) { ?>
-                                            <a href="admin.php?page=wps_plugins_page&action=activate&plugin=<?php echo $plugin->slug; ?>" class="button"><?php _e( 'Activate Add-Ons', 'wp-statistics' ); ?></a>
+                                            <a href="admin.php?page=wps_plugins_page&action=activate&plugin=<?php echo $plugin->slug; ?>" class="button"><?php _e( 'Activate Add-On', 'wp-statistics' ); ?></a>
 										<?php } else { ?>
                                             <div class="column-price">
                                                 <strong>$<?php echo $plugin->price; ?></strong>
                                             </div>
-                                            <a target="_blank" href="<?php echo $plugin->url; ?>" class="button-primary"><?php _e( 'Buy Add-Ons', 'wp-statistics' ); ?></a>
+                                            <a target="_blank" href="<?php echo $plugin->url; ?>" class="button-primary"><?php _e( 'Buy Add-On', 'wp-statistics' ); ?></a>
 										<?php } ?>
 									<?php } ?>
                                 </div>
@@ -77,7 +77,7 @@
                     <div class="inside">
                         <p>Creates a button on wysiwyg toolbars to add a configurable amount of Lorem Ipsum text to a
                             post, page or any other custom post type.</p>
-                        <a href="http://wp-statistics.com/add-ons/submit" target="_blank" class="button"><?php _e( 'Submit Add-ons', 'wp-statistics' ); ?></a>
+                        <a href="http://wp-statistics.com/add-ons/submit" target="_blank" class="button"><?php _e( 'Submit Add-on', 'wp-statistics' ); ?></a>
                     </div>
                 </div>
             </div>
