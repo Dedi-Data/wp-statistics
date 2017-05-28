@@ -1,11 +1,11 @@
 <div class="wrap">
-    <h2><?php esc_html_e('Extensions for WP-Statistics', 'wp-statistics'); ?></h2>
+    <h2><?php esc_html_e( 'Extensions for WP-Statistics', 'wp-statistics' ); ?></h2>
     <div id="poststuff" class="wp-statistics-plugins">
         <div id="post-body" class="metabox-holder columns-<?php echo 1 == get_current_screen()->get_columns() ? '1' : '2'; ?>">
-            <p><?php _e('These extensions add functionality to your WP-Statistics.', 'wp-statistics'); ?></p>
+            <p><?php _e( 'These extensions add functionality to your WP-Statistics.', 'wp-statistics' ); ?></p>
             <div class="wp-list-table widefat widefat plugin-install">
                 <div id="the-list">
-					<?php foreach ($plugins->items as $plugin) : ?>
+					<?php foreach ( $plugins->items as $plugin ) : ?>
                         <div class="plugin-card">
                             <div class="plugin-card-top">
                                 <div class="name column-name">
@@ -18,7 +18,7 @@
                                 </div>
 
                                 <div class="desc column-description">
-                                    <p><?php echo wp_trim_words($plugin->description, 20); ?></p>
+                                    <p><?php echo wp_trim_words( $plugin->description, 20 ); ?></p>
                                 </div>
                             </div>
                             <div class="plugin-card-bottom">
@@ -26,27 +26,27 @@
                                     <strong>Version: </strong><?php echo $plugin->version; ?>
                                     <p><strong>Status:</strong>
 										<?php
-										if (is_plugin_active($plugin->slug . '/' . $plugin->slug . '.php')) {
-											_e('Active', 'wp-statistics');
-										} else if (file_exists(WP_PLUGIN_DIR . '/' . $plugin->slug . '/' . $plugin->slug . '.php')) {
-											_e('Deactivate', 'wp-statistics');
+										if ( is_plugin_active( $plugin->slug . '/' . $plugin->slug . '.php' ) ) {
+											_e( 'Active', 'wp-statistics' );
+										} else if ( file_exists( WP_PLUGIN_DIR . '/' . $plugin->slug . '/' . $plugin->slug . '.php' ) ) {
+											_e( 'Deactivate', 'wp-statistics' );
 										} else {
-											_e('Not installed', 'wp-statistics');
+											_e( 'Not installed', 'wp-statistics' );
 										}
 										?>
                                     </p>
                                 </div>
                                 <div class="column-compatibility">
-									<?php if (is_plugin_active($plugin->slug . '/' . $plugin->slug . '.php')) { ?>
-                                        <a href="admin.php?page=wps_plugins_page&action=deactivate&plugin=<?php echo $plugin->slug; ?>" class="button"><?php _e('Deactivate plugin', 'wp-statistics'); ?></a>
+									<?php if ( is_plugin_active( $plugin->slug . '/' . $plugin->slug . '.php' ) ) { ?>
+                                        <a href="admin.php?page=wps_plugins_page&action=deactivate&plugin=<?php echo $plugin->slug; ?>" class="button"><?php _e( 'Deactivate Add-Ons', 'wp-statistics' ); ?></a>
 									<?php } else { ?>
-										<?php if (file_exists(WP_PLUGIN_DIR . '/' . $plugin->slug . '/' . $plugin->slug . '.php')) { ?>
-                                            <a href="admin.php?page=wps_plugins_page&action=activate&plugin=<?php echo $plugin->slug; ?>" class="button"><?php _e('Activate plugin', 'wp-statistics'); ?></a>
+										<?php if ( file_exists( WP_PLUGIN_DIR . '/' . $plugin->slug . '/' . $plugin->slug . '.php' ) ) { ?>
+                                            <a href="admin.php?page=wps_plugins_page&action=activate&plugin=<?php echo $plugin->slug; ?>" class="button"><?php _e( 'Activate Add-Ons', 'wp-statistics' ); ?></a>
 										<?php } else { ?>
                                             <div class="column-price">
                                                 <strong>$<?php echo $plugin->price; ?></strong>
                                             </div>
-                                            <a target="_blank" href="<?php echo $plugin->url; ?>" class="button-primary"><?php _e('Buy plugin', 'wp-statistics'); ?></a>
+                                            <a target="_blank" href="<?php echo $plugin->url; ?>" class="button-primary"><?php _e( 'Buy Add-Ons', 'wp-statistics' ); ?></a>
 										<?php } ?>
 									<?php } ?>
                                 </div>
@@ -61,7 +61,8 @@
                     <button type="button" class="handlediv button-link" aria-expanded="true">
                         <span class="screen-reader-text">Toggle panel</span><span class="toggle-indicator" aria-hidden="true"></span>
                     </button>
-                    <h2 class="hndle ui-sortable-handle"><span>About plugins</span></h2>
+                    <h2 class="hndle ui-sortable-handle"><span><?php _e( 'About Add-Ons', 'wp-statistics' ); ?></span>
+                    </h2>
                     <div class="inside">
                         <p>Creates a button on wysiwyg toolbars to add a configurable amount of Lorem Ipsum text to a
                             post, page or any other custom post type.</p>
@@ -72,10 +73,11 @@
                     <button type="button" class="handlediv button-link" aria-expanded="true">
                         <span class="screen-reader-text">Toggle panel</span><span class="toggle-indicator" aria-hidden="true"></span>
                     </button>
-                    <h2 class="hndle ui-sortable-handle"><span>Support</span></h2>
+                    <h2 class="hndle ui-sortable-handle"><span><?php _e( 'Join to Market!', 'wp-statistics' ); ?></span></h2>
                     <div class="inside">
                         <p>Creates a button on wysiwyg toolbars to add a configurable amount of Lorem Ipsum text to a
                             post, page or any other custom post type.</p>
+                        <a href="http://wp-statistics.com/add-ons/submit" target="_blank" class="button"><?php _e( 'Submit Add-ons', 'wp-statistics' ); ?></a>
                     </div>
                 </div>
             </div>
