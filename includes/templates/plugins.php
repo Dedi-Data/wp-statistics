@@ -57,26 +57,17 @@
             </div>
 
             <div id="postbox-container-1" class="postbox-container">
-                <div id="wps-plugins-info" class="postbox ">
+
+                <div id="wps-plugins-support" class="postbox">
                     <button type="button" class="handlediv button-link" aria-expanded="true">
                         <span class="screen-reader-text">Toggle panel</span><span class="toggle-indicator" aria-hidden="true"></span>
                     </button>
-                    <h2 class="hndle ui-sortable-handle"><span><?php _e( 'About Add-Ons', 'wp-statistics' ); ?></span>
+                    <h2 class="hndle ui-sortable-handle"><span><?php _e( 'Join to Market!', 'wp-statistics' ); ?></span>
                     </h2>
                     <div class="inside">
-                        <p>Creates a button on wysiwyg toolbars to add a configurable amount of Lorem Ipsum text to a
-                            post, page or any other custom post type.</p>
-                    </div>
-                </div>
-
-                <div id="wps-plugins-support" class="postbox ">
-                    <button type="button" class="handlediv button-link" aria-expanded="true">
-                        <span class="screen-reader-text">Toggle panel</span><span class="toggle-indicator" aria-hidden="true"></span>
-                    </button>
-                    <h2 class="hndle ui-sortable-handle"><span><?php _e( 'Join to Market!', 'wp-statistics' ); ?></span></h2>
-                    <div class="inside">
-                        <p>Creates a button on wysiwyg toolbars to add a configurable amount of Lorem Ipsum text to a
-                            post, page or any other custom post type.</p>
+                        <p>We welcome practical extensions for the WP-Statistics plugin. In case you're a WordPress
+                            programmer and developer and plan to sell extension in this page, please contact us through
+                            the following link.</p>
                         <a href="http://wp-statistics.com/add-ons/submit" target="_blank" class="button"><?php _e( 'Submit Add-on', 'wp-statistics' ); ?></a>
                     </div>
                 </div>
