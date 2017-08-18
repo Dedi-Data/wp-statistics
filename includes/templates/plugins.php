@@ -12,7 +12,7 @@
                                     <h3>
                                         <a target="_blank" href="<?php echo $plugin->url; ?>" class="thickbox open-plugin-details-modal">
 											<?php echo $plugin->name; ?>
-                                            <img src="<?php echo $plugin->image; ?>" class="plugin-icon" alt="">
+                                            <img src="<?php echo $plugin->icon; ?>" class="plugin-icon" alt="">
                                         </a>
                                     </h3>
                                 </div>

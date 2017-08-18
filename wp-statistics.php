@@ -721,7 +721,7 @@ function wp_statistics_plugins() {
 		}
 	}
 
-	$response      = wp_remote_get( 'http://198.199.76.235/wp-json/addons/get_list' );
+	$response      = wp_remote_get( 'https://wp-statistics.com/wp-json/addons/get' );
 	$response_code = wp_remote_retrieve_response_code( $response );
 	$error         = null;
 	$plugins       = [];
